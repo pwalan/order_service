@@ -18,6 +18,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order save(int userId, int productId) {
+        //使用ribbon
         Map<String, Object> productMap = restTemplate.getForObject("http://product-service/api/v1/product/find?id=" + productId, Map.class);
 
         Order order = new Order();
