@@ -1,6 +1,7 @@
 server:
   port: 8781
 
+
 eureka:
   client:
     serviceUrl:
@@ -9,3 +10,13 @@ eureka:
 spring:
   application:
     name: order-service
+  redis:
+    database: 0
+    host: 139.199.122.209
+    port: 6379
+    timeout: 2000
+
+feign:
+  hystrix:
+    enabled: true
+
