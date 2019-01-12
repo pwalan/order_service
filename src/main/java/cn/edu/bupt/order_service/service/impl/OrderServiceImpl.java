@@ -5,6 +5,8 @@ import cn.edu.bupt.order_service.service.OrderService;
 import cn.edu.bupt.order_service.service.ProductClient;
 import cn.edu.bupt.order_service.utils.JsonUtils;
 import com.fasterxml.jackson.databind.JsonNode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,8 @@ import java.util.UUID;
 
 @Service
 public class OrderServiceImpl implements OrderService {
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private ProductClient productClient;
@@ -25,6 +29,8 @@ public class OrderServiceImpl implements OrderService {
         //TODO
 
         JsonNode jsonNode = JsonUtils.str2JsonNode(response);
+
+        logger.info("service save order");
 
         Order order = new Order();
         order.setCreateTime(new Date());
